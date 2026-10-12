@@ -317,7 +317,7 @@ def token_spend(y):
     total = int(t["total"])
     since = dt.date.fromisoformat(t["since"]).strftime("%b %Y").lower()
     synced = dt.datetime.fromisoformat(t["synced"]).strftime("%b %-d").lower()
-    out = label(PAD, y + 24, "ESTIMATED TOKEN SPEND", f"since {since}  ·  synced {synced}")
+    out = label(PAD, y + 24, "ESTIMATED TOKEN SPEND 😂", f"since {since}  ·  synced {synced}")
     num, w = pixel_text(f"{total:,}", PAD, y + 42, 5)
     out += num
     out += text(PAD + w + 24, y + 70, f"≈ {human(total)} tokens", size=13, fill=MID)
