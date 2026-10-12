@@ -1,0 +1,19 @@
+{
+  "github_user": "lewis-shearer",
+  "display_name": "Lewis Shearer",
+  "tagline": "ai & software dev intern · team lead @ google developer group glasgow",
+  "ignore_languages": [
+    "Jupyter Notebook"
+  ],
+  "languages_note": "by bytes, notebooks excluded",
+  "community": {
+    "talks": 8,
+    "workshops": 3,
+    "role": "team lead, google developer group glasgow",
+    "events": [
+      {
+        "what": "This year: Talk @ Glasgow Tech Meetup"
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_comment": "Groups are separated by a dot on the card. Slugs come from simpleicons.org. Optional 'color' overrides the brand hex.",
+  "groups": [
+    ["python", "javascript", "html5"],
+    ["pytorch", "tensorflow", "scikitlearn", "huggingface", "opencv"],
+    ["pandas", "numpy", "jupyter"],
+    ["claude", "googlegemini", "langchain"],
+    ["googlecloud", "firebase", "docker", "git", "githubactions", "linux"]
+  ]
+}
