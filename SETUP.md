@@ -11,4 +11,3 @@
 ## Editing
 - `data/stack.json`: icon slugs from simpleicons.org, grouped (a dot separates groups).
 - `data/profile.json`: name, tagline, languages to ignore.
-- `data/tokens.json`: refresh with `/usr/bin/python3 scripts/token_spend.py`, commit, push. Delete the file to hide that section.

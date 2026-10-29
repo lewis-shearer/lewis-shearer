@@ -15,7 +15,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PROFILE = json.loads((ROOT / "data/profile.json").read_text())
 STACK = json.loads((ROOT / "data/stack.json").read_text())
-TOKENS_FILE = ROOT / "data/tokens.json"
 OUT = ROOT / "assets/readme.svg"
 
 USER = PROFILE["github_user"]
@@ -310,46 +309,6 @@ def langs_and_community(y, langs):
     return out + rule(y + h), h
 
 
-def token_spend(y):
-    if not TOKENS_FILE.exists():
-        return "", 0
-    t = json.loads(TOKENS_FILE.read_text())
-    total = int(t["total"])
-    since = dt.date.fromisoformat(t["since"]).strftime("%b %Y").lower()
-    synced = dt.datetime.fromisoformat(t["synced"]).strftime("%b %-d").lower()
-    out = label(PAD, y + 24, "ESTIMATED TOKEN SPEND 😂", f"since {since}  ·  synced {synced}")
-    num, w = pixel_text(f"{total:,}", PAD, y + 42, 5)
-    out += num
-    out += text(PAD + w + 24, y + 70, f"≈ {human(total)} tokens", size=13, fill=MID)
-    goal = next_goal(total)
-    out += bar(PAD, y + 92, 690, 14, total / goal)
-    out += text(W - PAD, y + 104, f"{short(total)}/{short(goal)}", size=13, anchor="end")
-    return out + rule(y + 122), 122
-
-
-def next_goal(n):
-    mag = 1
-    while True:
-        for m in (1, 2, 5):
-            if m * mag > n:
-                return m * mag
-        mag *= 10
-
-
-def human(n):
-    for v, word in ((1e9, "billion"), (1e6, "million"), (1e3, "thousand")):
-        if n >= v:
-            return f"{n / v:.2f} {word}"
-    return str(n)
-
-
-def short(n):
-    for v, s in ((1e9, "B"), (1e6, "M"), (1e3, "K")):
-        if n >= v:
-            return f"{n / v:.1f}".rstrip("0").rstrip(".") + s
-    return str(n)
-
-
 def footer(y):
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M utc")
     out = f'<rect x="{PAD}" y="{y + 15}" width="6" height="6" fill="{FG}"/>'
@@ -365,7 +324,6 @@ def main():
         lambda y: stack(y, icons()),
         lambda y: activity(y, contributions()),
         lambda y: langs_and_community(y, languages(repos)),
-        token_spend,
         footer,
     ]
     body, y = [], 0
