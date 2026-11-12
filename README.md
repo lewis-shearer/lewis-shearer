@@ -1,3 +1,3 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/lewis-shearer/lewis-shearer/3016d4acca9c15b5485ec7fcc60bd642d3325fa8/assets/readme.svg" alt="Lewis Shearer: tech stack, GitHub contributions, top languages, and community events" />
+  <img src="https://raw.githubusercontent.com/lewis-shearer/lewis-shearer/bbf1edca22aeed45815c71532680b767d717e2c4/assets/readme.svg" alt="Lewis Shearer: tech stack, GitHub contributions, top languages, and community events" />
 </p>
